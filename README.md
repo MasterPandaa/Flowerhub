@@ -22,7 +22,7 @@ The application integrates **Midtrans Snap** for automated payment verification 
 
 - **Bouquet and Hamper Catalog**: Multi-image galleries with categorization for standing flowers, wedding arrangements, and personalized hampers.
 - **Scheduled Gift Delivery**: Customers select specific delivery dates and add custom greeting card text during checkout.
-- **Automated Payment Gateway**: Seamless payment modal powered by Midtrans Snap supporting GoPay, ShopeePay, BCA, Mandiri, and BNI virtual accounts.
+- **Automated Payment Gateway**: Direct payment modal powered by Midtrans Snap supporting GoPay, ShopeePay, BCA, Mandiri, and BNI virtual accounts.
 - **Live Order Tracking**: End-to-end status pipeline for orders (Payment Pending, In Arrangement, Out for Delivery, Delivered).
 - **Administrative Role Control**: Granular permission boundaries for Florist Arrangers and Store Managers powered by Spatie RBAC.
 - **Automated Image Optimization**: Media uploads are dynamically processed into responsive thumbnails using Intervention Image.
