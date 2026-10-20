@@ -1,90 +1,91 @@
-# Flowerhub — Florist & Flower Order E-Commerce Platform
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MasterPandaa/MasterPandaa/main/assets/banners/Flowerhub.svg" alt="Flowerhub E-Commerce Banner" width="100%">
+</p>
 
-A modern flower boutique and order management e-commerce web application built with **Laravel 11**, designed for florists and gifting businesses.
+<p align="center">
+  <img src="https://img.shields.io/badge/Framework-Laravel_11-FF2D20?style=flat-square&logo=laravel" alt="Laravel">
+  <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php" alt="PHP">
+  <img src="https://img.shields.io/badge/Payments-Midtrans_Snap-0052CC?style=flat-square" alt="Midtrans">
+  <img src="https://img.shields.io/badge/Database-MySQL-4479A1?style=flat-square&logo=mysql" alt="MySQL">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-10B981?style=flat-square" alt="License"></a>
+</p>
 
-Flowerhub streamlines customer bouquet browsing, order scheduling, and checkout while providing shop administrators with an end-to-end order processing and inventory dashboard.
+## Overview
 
----
+Florist businesses face distinctive e-commerce requirements: strict delivery date scheduling, recipient greeting card customization, and real-time inventory management across fragile perishable items. Flowerhub is an e-commerce platform built with **Laravel 11**, designed specifically for floral boutiques and gifting merchants.
 
-## Features
-
-- **Product Showcase**: Catalog for flower bouquets, standing flower arrangements, and gift hampers with multi-image support.
-- **Order Scheduling & Customization**: Support for delivery date selection, greeting card message customization, and recipient details.
-- **Payment Gateway Integration**: Secure checkout supporting online payments, bank transfers, and e-wallets via Midtrans Snap.
-- **Order Management Dashboard**: Real-time status tracking for store admins (Pending, In Arrangement, Out for Delivery, Completed).
-- **Role & Permission Management**: Multi-tier access control (Store Admin, Florist Staff, Customer) powered by Spatie Permission.
-- **Image Processing**: Automatic thumbnail optimization and aspect-ratio handling for flower photographs via Intervention Image.
-
----
-
-## Tech Stack
-
-- **Backend**: Laravel 11, PHP 8.2+
-- **Frontend**: Blade Templates, Tailwind CSS / Bootstrap, JavaScript
-- **Database**: MySQL / SQLite
-- **Payment Gateway**: Midtrans Snap Integration
-- **Key Packages**:
-  - `spatie/laravel-permission` (Role-based access control)
-  - `intervention/image` (Media optimization)
-  - `laravel/sanctum` & `laravel/socialite` (Authentication)
+The application integrates **Midtrans Snap** for automated payment verification across Indonesian bank transfers, QRIS, and e-wallets, paired with an administrative order tracking panel.
 
 ---
 
-## Getting Started
+## Core Capabilities
+
+- **Bouquet and Hamper Catalog**: Multi-image galleries with categorization for standing flowers, wedding arrangements, and personalized hampers.
+- **Scheduled Gift Delivery**: Customers select specific delivery dates and add custom greeting card text during checkout.
+- **Automated Payment Gateway**: Seamless payment modal powered by Midtrans Snap supporting GoPay, ShopeePay, BCA, Mandiri, and BNI virtual accounts.
+- **Live Order Tracking**: End-to-end status pipeline for orders (Payment Pending, In Arrangement, Out for Delivery, Delivered).
+- **Administrative Role Control**: Granular permission boundaries for Florist Arrangers and Store Managers powered by Spatie RBAC.
+- **Automated Image Optimization**: Media uploads are dynamically processed into responsive thumbnails using Intervention Image.
+
+---
+
+## Quickstart
 
 ### Prerequisites
 
-- PHP >= 8.2
-- Composer
-- Node.js & NPM
-- MySQL or SQLite
-- Midtrans Merchant Sandbox Account (for payment testing)
+- PHP 8.2+
+- Composer and Node.js
+- MySQL or MariaDB
+- Midtrans Merchant Sandbox Account
 
 ### Installation
 
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
    git clone https://github.com/MasterPandaa/Flowerhub.git
    cd Flowerhub
    ```
 
-2. **Install PHP and JavaScript dependencies**:
+2. Install dependencies:
    ```bash
    composer install
    npm install && npm run build
    ```
 
-3. **Configure environment**:
+3. Configure environment:
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
 
-4. **Update payment & database credentials in `.env`**:
+4. Configure database and Midtrans keys in `.env`:
    ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
    DB_DATABASE=flowerhub_db
-   DB_USERNAME=root
-   DB_PASSWORD=
-
-   MIDTRANS_SERVER_KEY=your_sandbox_server_key
-   MIDTRANS_CLIENT_KEY=your_sandbox_client_key
+   MIDTRANS_SERVER_KEY=SB-Mid-server-xxxx
+   MIDTRANS_CLIENT_KEY=SB-Mid-client-xxxx
    MIDTRANS_IS_PRODUCTION=false
    ```
 
-5. **Run migrations and seeders**:
+5. Run migrations and start server:
    ```bash
    php artisan migrate --seed
    php artisan storage:link
-   ```
-
-6. **Start the application**:
-   ```bash
    php artisan serve
    ```
-   Access the store at `http://127.0.0.1:8000`.
+   Open `http://localhost:8000` in your browser.
+
+---
+
+## Repository Structure
+
+```text
+Flowerhub/
+├── app/Http/Controllers/   # Product catalog, order checkout, and webhook handlers
+├── app/Models/             # Product, Category, Order, and CardMessage entities
+├── database/migrations/    # Database schema with foreign key constraints
+├── resources/views/        # Responsive customer storefront and admin dashboard
+└── README.md               # Platform documentation
+```
 
 ---
 
